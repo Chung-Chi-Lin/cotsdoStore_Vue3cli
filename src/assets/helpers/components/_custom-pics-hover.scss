@@ -1,0 +1,11 @@
+.pics-hover {
+	position: relative;
+	img {
+		position: absolute;
+		&:last-child {
+			&:hover {
+				opacity: 0;
+			}
+		}
+	}
+}

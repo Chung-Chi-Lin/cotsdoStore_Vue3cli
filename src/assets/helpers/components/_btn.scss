@@ -1,0 +1,24 @@
+.btn-custom-hex {
+    @include button-variant(#69F0aE, #69F0aE);
+}
+
+.btn-custom-hexBorder {
+    @include button-outline-variant(#69F0aE);
+}
+
+.btn-special {
+    &:hover {
+    box-shadow: 2px 5px 3px black;
+    background-color: $warning;
+    transform: translateY(-5px);
+    }
+}
+// 浮起
+.btn-h {
+    &:hover {
+    transform: translateY(-8px);
+    }
+}
+.shadow-g {
+    box-shadow: 0 0 20px #82de61;
+}

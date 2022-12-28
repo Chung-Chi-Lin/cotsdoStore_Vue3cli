@@ -1,0 +1,19 @@
+@keyframes boxAnimation{
+  from{
+    right:0%;
+  }
+  to{
+    right:60%;
+  }
+}
+
+.animation{
+  position:absolute;
+  top: 140px;
+  right:60%;
+  animation-name:boxAnimation;
+  animation-duration:2s;
+    &:hover {
+      transform: translateY(-20px);
+    }
+}

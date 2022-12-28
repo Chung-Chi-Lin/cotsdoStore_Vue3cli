@@ -1,0 +1,17 @@
+.card-shadow-h{
+	position: relative;
+	&:hover {
+		box-shadow: 5px 10px 20px #a1a1a1;
+		.card-pic-h{
+			display: block;
+		}
+		.text {
+			color: $warning;
+		}
+	}
+}
+
+.card-pic-h{
+	position: absolute;
+	display: none;
+}
