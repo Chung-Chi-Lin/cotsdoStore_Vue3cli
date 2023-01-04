@@ -14,11 +14,11 @@
             <div class="card-body px-sm-3 px-2">
               <div class="form-group">
                 <label for="name">顧客名稱*</label>
-                <v-field id="name" name="姓名" type="text" class="form-control"
-                :class="{ 'is-invalid': errors['姓名'] }"
+                <v-field id="name" name="顧客姓名" type="text" class="form-control"
+                :class="{ 'is-invalid': errors['顧客姓名'] }"
                 placeholder="請輸入姓名" rules="required"
                 v-model="info.name"></v-field>
-                <ErrorMessage name="姓名" class="invalid-feedback"></ErrorMessage>
+                <ErrorMessage name="顧客姓名" class="invalid-feedback"></ErrorMessage>
               </div>
               <div class="form-group py-3">
                 <label for="email">電子信箱*</label>
@@ -33,7 +33,8 @@
                 <v-field id="tel" name="電話" type="number" class="form-control"
                 :class="{ 'is-invalid': errors['電話'] }"
                 placeholder="請輸入電話" :rules="isPhone"
-                v-model="info.tel"></v-field>
+                v-model="info.tel"
+                oninput="if(value.length>10)value=value.slice(0,10)"></v-field>
                 <ErrorMessage name="電話" class="invalid-feedback"></ErrorMessage>
               </div>
               <label for="message pb-3">訂單備註</label>
@@ -55,19 +56,20 @@
               <div class="form-group pb-3">
                 <label for="addressee">收件人姓名*</label>
                 <span class="ms-3 text-muted">請填入收件人真實姓名，以確保順利收件</span>
-                <v-field id="addressee" name="姓名" type="text" class="form-control"
-                :class="{ 'is-invalid': errors['姓名'] }"
+                <v-field id="addressee" name="收件人姓名" type="text" class="form-control"
+                :class="{ 'is-invalid': errors['收件人姓名'] }"
                 placeholder="請輸入姓名" rules="required"
                 v-model="user.name"></v-field>
-                <ErrorMessage name="姓名" class="invalid-feedback"></ErrorMessage>
+                <ErrorMessage name="收件人姓名" class="invalid-feedback"></ErrorMessage>
               </div>
               <div class="form-group pb-3">
                 <label for="addressee-tel">收件人手機號碼*</label>
-                <v-field id="addressee-tel" name="電話" type="tel" class="form-control"
-                :class="{ 'is-invalid': errors['電話'] }"
-                placeholder="請輸入電話" rules="required"
-                v-model="user.tel"></v-field>
-                <ErrorMessage name="電話" class="invalid-feedback"></ErrorMessage>
+                <v-field id="addressee-tel" name="收件人電話" type="number" class="form-control"
+                :class="{ 'is-invalid': errors['收件人電話'] }"
+                placeholder="請輸入電話" :rules="isPhone"
+                v-model="user.tel"
+                oninput="if(value.length>10)value=value.slice(0,10)"></v-field>
+                <ErrorMessage name="收件人電話" class="invalid-feedback"></ErrorMessage>
               </div>
               <div class="form-group">
                 <label for="address" class="form-label">收件人地址*</label>
@@ -194,7 +196,7 @@
                 返回購物車
               </router-link>
               <div class="text-end">
-                <button class="btn btn-info btn-block mt-0" @click="createOrder">送出訂單</button>
+                <button class="btn btn-info btn-block mt-0">送出訂單</button>
               </div>
             </div>
           </div>

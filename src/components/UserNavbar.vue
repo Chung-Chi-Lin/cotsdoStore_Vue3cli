@@ -1,11 +1,11 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-warning py-lg-3
+  <nav class="navbar navbar-expand-xxl navbar-light bg-warning py-md-3
     sticky-top fw-bold border-bottom border-dark border-5">
     <div class="container-fluid px-lg-5">
-      <div class="col-example d-none d-md-block text-center">
+      <div class="col-example d-none d-lg-block text-center">
         <h1 class="f-kalam fs-3 mt-3 fw-bold">Costdo 寵物生活館</h1>
       </div>
-      <div class="d-md-none text-center shadow-sm rounded-pill">
+      <div class="d-lg-none text-center shadow-sm rounded-pill">
         <h1 class="f-kalam fs-3 mt-3 px-2 fw-bold">Costdo 寵物生活館</h1>
       </div>
       <button class="navbar-toggler border-0" type="button"

@@ -5,28 +5,52 @@
         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
         </div>
       </div>
-      <button type="button" ref="cart" :class="successClass" class="position-absolute top-0 start-0
-      translate-middle btn btn-sm text-white rounded-pill" @click="goCart"
+      <button type="button" ref="cart" :class="successClass"
+      class="position-absolute top-0 start-0 pe-none
+      translate-middle btn btn-sm text-white rounded-pill"
       style="width: 2rem; height:2rem;">1
       <span class="text-dark fw-bold position-absolute top-100 start-50
       translate-middle-x text-nowrap text-brown">購物車</span>
       </button>
-      <button type="button" ref="order" :class="errorClass" class="position-absolute top-0 start-50
-      translate-middle btn btn-sm rounded-pill text-white" @click="goOrder"
+      <button type="button" ref="order" :class="errorClass"
+      class="position-absolute top-0 start-50 pe-none
+      translate-middle btn btn-sm rounded-pill text-white"
       style="width: 2rem; height:2rem;">2
       <span class="text-dark fw-bold position-absolute top-100 start-50
       translate-middle-x text-nowrap text-brown">填寫資料</span>
       </button>
-      <button type="button" ref="check" :class="errorClass" class="position-absolute top-0 start-100
-      translate-middle btn btn-sm text-white btn-secondary rounded-pill" @click="goCheck"
+      <button type="button" ref="check" :class="errorClass"
+      class="position-absolute top-0 start-100 pe-none
+      translate-middle btn btn-sm text-white btn-secondary rounded-pill"
       style="width: 2rem; height:2rem;">3
       <span class="text-dark fw-bold position-absolute top-100 start-50
       translate-middle-x text-nowrap text-brown">訂單確認</span>
       </button>
     </div>
+
+    <div class="modal fade" id="exampleModal" ref="modal"
+    tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close"
+            data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </template>
 
 <script>
+
 export default {
   props: ['checkoutType'],
   data() {
@@ -39,15 +63,6 @@ export default {
     };
   },
   methods: {
-    goCart() {
-      this.$router.push('/user/cart');
-    },
-    goOrder() {
-      this.$router.push('/user/order');
-    },
-    goCheck() {
-      this.$router.push('/user/checkout');
-    },
     checkProgress() {
       if (this.checkoutType === 'order') {
         this.styleObject.width = '50%';

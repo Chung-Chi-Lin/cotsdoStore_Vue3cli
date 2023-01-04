@@ -2,7 +2,7 @@
   <loading-page :active="isLoading"></loading-page>
   <div class="border-bottom">
     <div class="container">
-      <div style="position:relative;">
+      <div class="d-none d-md-block" style="position:relative;">
         <img class="w-100 my-3 rounded-4" style="height:550px" src="https://images.unsplash.com/photo-1555341029-f730b0ce4522?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
         <div class="rounded-1"
         style="position:absolute;background-color: #00000090;z-index:2; left:200px; top:280px;">
@@ -13,6 +13,19 @@
         </h2>
         </div>
       </div>
+
+      <div class="d-md-none" style="position:relative;">
+        <img class="w-100 my-3 rounded-4" style="height:250px" src="https://images.unsplash.com/photo-1555341029-f730b0ce4522?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
+        <div class="rounded-1"
+        style="position:absolute;background-color: #00000090;z-index:2; left:50px; top:80px;">
+        <h2 class="text-white p-4 font-monospace h3">
+          輸入優惠碼
+          <span class="text-decoration-underline">costdo85</span><br>
+          即可享全館 85 折優惠
+        </h2>
+        </div>
+      </div>
+
       <nav aria-label="breadcrumb">
         <div class="container position-relative">
           <ToastMessages></ToastMessages>
@@ -41,8 +54,8 @@
         </section>
         </nav>
         <div class="col-md-8">
-          <div class="row row-cols-3 g-2">
-            <div class="col" v-for="item in currentPageData" :key="item.id">
+          <div class="row row-cols-md-3 g-2">
+            <div class="container col-11 col-md-4" v-for="item in currentPageData" :key="item.id">
               <ProductCard
                 :imageUrl="item.imageUrl"
                 :price="item.price"
@@ -100,18 +113,6 @@ export default {
         this.searchResult = this.products.filter((item) => item.title.match(searchProduct));
       });
     },
-    // getProducts(page = 1) {
-    //   this.isLoading = true;
-    //   const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/
-    //   products/?page=${page}`;
-    //   this.$http.get(api).then((res) => {
-    //     this.isLoading = false;
-    //     if (res.data.success) {
-    //       this.products = res.data.products;
-    //       this.pagination = res.data.pagination;
-    //     }
-    //   });
-    // },
     getProduct(id) {
       this.$router.push(`/product/${id}`);
     },

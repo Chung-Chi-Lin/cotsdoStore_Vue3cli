@@ -101,6 +101,7 @@
 <script>
 import Collapse from 'bootstrap/js/dist/collapse';
 import UserProgress from '@/components/UserProgress.vue';
+import Swal from 'sweetalert2';
 
 export default {
   components: {
@@ -139,6 +140,13 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${this.orderId}`;
       this.$http.post(url)
         .then((res) => {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: '您已成功付款 ! 已安排出貨 !',
+            showConfirmButton: false,
+            timer: 2000,
+          });
           console.log(res);
           if (res.data.success) {
             this.getOrder();
