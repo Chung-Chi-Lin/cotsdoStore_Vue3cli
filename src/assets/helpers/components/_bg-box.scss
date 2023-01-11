@@ -2,3 +2,22 @@
   background-color: rgba(0, 0, 0, 0.405);
   border-radius: 50px;
 }
+
+.object-cover-top {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.object-cover-center {
+  object-fit: cover;
+  object-position: center;
+}
+
+.object-cover-bottom {
+  object-fit: cover;
+  object-position: center;
+}
+
+.bg-h {
+  height: calc(100vh);
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="container py-5">
+  <div class="container py-5 bg-h">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb py-4 fs-3">
         <li class="breadcrumb-item ">
@@ -41,9 +41,8 @@
           />
           </label>
         </div>
-
-        <div class="text-end mt-4">
-          <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
+        <div class="text-start mt-5 ms-5">
+          <button class="btn btn-lg btn-brown btn-block w-50" type="submit">登入</button>
         </div>
       </div>
     </form>
@@ -51,6 +50,8 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
+
 export default {
   data() {
     return {
@@ -69,6 +70,13 @@ export default {
             const { token, expired } = res.data;
             document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
             this.$router.push('/dashboard/products');
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: '登入失敗，請確認是否有商家帳號密碼 !',
+              showConfirmButton: false,
+              timer: 1500,
+            });
           }
         });
     },

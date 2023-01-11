@@ -1,11 +1,11 @@
 <template>
   <header>
-    <img class="img-fluid d-md-none" src="https://images.unsplash.com/photo-1571748847329-20aaf49a03b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
+    <img class="img-fluid d-md-none" src="https://images.unsplash.com/photo-1571748847329-20aaf49a03b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="貓咪打哈欠">
   <div id="carouselExampleSlidesOnly"
   class="carousel slide d-none d-md-block" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="4000">
-      <img src="https://images.unsplash.com/photo-1573435567032-ff5982925350?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80" class="d-block w-100 img-fluid" alt="dog&cat" style="height:700px">
+      <img src="https://images.unsplash.com/photo-1573435567032-ff5982925350?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80" class="d-block w-100 img-fluid object-cover-top" alt="dog&cat" style="height:700px">
       <div class="carousel-caption d-none d-md-block bg-box">
         <h2 class="mb-3">榮獲優良寵物飼料優等
           <i class="bi bi-clipboard-check-fill text-warning"></i>
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="carousel-item" data-bs-interval="4000">
-      <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1586&q=80" class="d-block w-100 img-fluid" alt="dog&cat" style="height:700px">
+      <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1586&q=80" class="d-block w-100 img-fluid object-cover-center" alt="dog&cat" style="height:700px">
       <div class="carousel-caption d-none d-md-block bg-box">
         <h2 class="mb-3">榮獲在地環境保育政府獎
           <i class="bi bi-clipboard-check-fill text-warning"></i>
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="carousel-item" data-bs-interval="4000">
-      <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80" class="d-block w-100 img-fluid" alt="mouse" style="height:700px">
+      <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80" class="d-block w-100 img-fluid object-cover-bottom" alt="mouse" style="height:700px">
       <div class="carousel-caption d-none d-md-block bg-box">
         <h2 class="mb-3">國外倉鼠比賽舉辦商優選
           <i class="bi bi-clipboard-check-fill text-warning"></i>
@@ -86,9 +86,9 @@
           </h2>
           <ul class="row row-cols-1 row-cols-lg-4 g-3 g-lg-4 list-unstyled">
             <li class="col">
-              <div class="card shadow border-0 btn-h">
+              <div class="card shadow border-0 card-h">
                 <div class="card-body text-center py-4">
-                  <img src="https://s3-ap-northeast-1.amazonaws.com/lacabosse.com.tw/wp-content/uploads/2019/03/handmade4.png" alt="">
+                  <img src="https://s3-ap-northeast-1.amazonaws.com/lacabosse.com.tw/wp-content/uploads/2019/03/handmade4.png" alt="手工製作img">
                   <h4 class="card-title fw-bold pt-2">
                     <span class="f-kalam text-danger">100%</span>
                     手工製作
@@ -100,9 +100,9 @@
               </div>
             </li>
             <li class="col">
-              <div class="card shadow border-0 btn-h">
+              <div class="card shadow border-0 card-h">
                 <div class="card-body text-center py-4">
-                  <img src="../assets/home-img/our-people-icon-2x.png" alt="">
+                  <img src="../assets/home-img/our-people-icon-2x.png" alt="專業團隊img">
                   <h4 class="card-title fw-bold pt-2">
                     <span class="f-kalam text-danger">100%</span>
                     專業團隊
@@ -114,9 +114,9 @@
               </div>
             </li>
             <li class="col">
-              <div class="card shadow border-0 btn-h">
+              <div class="card shadow border-0 card-h">
                 <div class="card-body text-center py-4">
-                  <img src="https://s3-ap-northeast-1.amazonaws.com/lacabosse.com.tw/wp-content/uploads/2019/03/Premium-quality1.png" alt="">
+                  <img src="https://s3-ap-northeast-1.amazonaws.com/lacabosse.com.tw/wp-content/uploads/2019/03/Premium-quality1.png" alt="品質把關img">
                   <h4 class="card-title fw-bold pt-2">
                     <span class="f-kalam text-danger">100%</span>
                     品質把關
@@ -128,9 +128,9 @@
               </div>
             </li>
             <li class="col">
-              <div class="card shadow border-0 btn-h">
+              <div class="card shadow border-0 card-h">
                 <div class="card-body text-center py-4">
-                  <img src="https://s3-ap-northeast-1.amazonaws.com/lacabosse.com.tw/wp-content/uploads/2019/03/cold-shipping.png" alt="">
+                  <img src="https://s3-ap-northeast-1.amazonaws.com/lacabosse.com.tw/wp-content/uploads/2019/03/cold-shipping.png" alt="專業配送img">
                   <h4 class="card-title fw-bold pt-2">
                     <span class="f-kalam text-danger">100%</span>
                     專業配送
@@ -160,26 +160,23 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
-              src="../assets/home-img/carousel-1.png"
-              class="d-block w-100 h-100"
-              alt="..."
-              height="500px"
+              src="https://pettalk.s3-ap-northeast-1.amazonaws.com/p/post/-999-0/pool/VjCvKHgQI51VbQE_1614851852.jpg"
+              class="d-block w-100 h-100 object-cover-center"
+              alt="瘋貓季"
             />
           </div>
           <div class="carousel-item">
             <img
-              src="../assets/home-img/carousel-2.png"
-              class="d-block w-100 h-100"
-              alt="..."
-              height="500px"
+              src="https://pettalk.s3-ap-northeast-1.amazonaws.com/p/post/-999-0/pool/Nw=hh7OmzW5GIVS_1604912450.jpg"
+              class="d-block w-100 h-100 object-cover-center"
+              alt="台北寵物節"
             />
           </div>
           <div class="carousel-item">
             <img
               src="../assets/home-img/carousel-3.jpg"
-              class="d-block w-100 h-100"
-              alt="..."
-              height="500px"
+              class="d-block w-100 h-100 object-cover-center"
+              alt="寵物展"
             />
           </div>
         </div>

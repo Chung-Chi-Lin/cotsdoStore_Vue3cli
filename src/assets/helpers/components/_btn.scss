@@ -19,6 +19,12 @@
     transform: translateY(-8px);
     }
 }
+.card-h {
+    &:hover {
+    transform: translateY(-10px);
+    font-weight: bolder;
+    }
+}
 .shadow-g {
     box-shadow: 0 0 20px #82de61;
 }

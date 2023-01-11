@@ -12,26 +12,26 @@
         </li>
       </ol>
     </nav>
-    <img src="https://images.unsplash.com/photo-1605067351740-c67d09a5cab7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80" class="d-md-none w-100 rounded-3 mb-5"   alt="..." style="height:300px">
+    <img src="https://images.unsplash.com/photo-1605067351740-c67d09a5cab7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80" class="d-md-none w-100 rounded-3 mb-5 object-cover-center"   alt="貓與女主人">
     <div class="text-center mb-1 f-kalam">
       <h2 class="fw-bold">
         Costdo 寵物領養園區
         <i class="bi bi-balloon-heart-fill text-danger"></i>
       </h2>
-      <p class="fw-bold"> 他不是你的一生但你卻是他的一生，歡迎來園區幫他們找個家 !</p>
+      <p class="fw-bold fs-5 pt-2"> 牠不是你的一生但你卻是牠的一生，歡迎來園區幫他們找個家 !</p>
     </div>
     <div id="carouselExampleControls" class="carousel slide container
     my-4 d-none d-md-block" data-bs-ride="carousel"
     ref="adoptCarousel">
       <div class="carousel-inner rounded-3 shadow-lg">
       <div class="carousel-item active">
-        <img src="https://images.unsplash.com/photo-1517879288527-682ff596b022?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" class="d-block w-100"   alt="..." style="height:600px">
+        <img src="https://images.unsplash.com/photo-1517879288527-682ff596b022?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" class="d-block w-100 object-cover-top" alt="主人與狗在夕陽下" style="height:600px">
       </div>
       <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1466840787022-48e0ec048c8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1725&q=80" class="d-block w-100"   alt="..." style="height:600px">
+        <img src="https://images.unsplash.com/photo-1466840787022-48e0ec048c8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1725&q=80" class="d-block w-100 object-cover-top" alt="主人與狗做SUP" style="height:600px">
       </div>
       <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1605067351740-c67d09a5cab7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80" class="d-block w-100"   alt="..." style="height:600px">
+        <img src="https://images.unsplash.com/photo-1605067351740-c67d09a5cab7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80" class="d-block w-100 object-cover-center" alt="貓與女主人" style="height:600px">
       </div>
     </div>
   <button class="carousel-control-prev" type="button"

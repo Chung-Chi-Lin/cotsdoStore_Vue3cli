@@ -3,7 +3,7 @@
   <div class="border-bottom">
     <div class="container">
       <div class="d-none d-md-block" style="position:relative;">
-        <img class="w-100 my-3 rounded-4" style="height:550px" src="https://images.unsplash.com/photo-1555341029-f730b0ce4522?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
+        <img class="w-100 my-3 rounded-4 object-cover-center" style="height:550px" src="https://images.unsplash.com/photo-1555341029-f730b0ce4522?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="女生與兩隻貓">
         <div class="rounded-1"
         style="position:absolute;background-color: #00000090;z-index:2; left:200px; top:280px;">
         <h2 class="text-white p-4 font-monospace">
@@ -15,7 +15,7 @@
       </div>
 
       <div class="d-md-none" style="position:relative;">
-        <img class="w-100 my-3 rounded-4" style="height:250px" src="https://images.unsplash.com/photo-1555341029-f730b0ce4522?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
+        <img class="w-100 my-3 rounded-4" style="height:250px" src="https://images.unsplash.com/photo-1555341029-f730b0ce4522?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="女生與兩隻貓">
         <div class="rounded-1"
         style="position:absolute;background-color: #00000090;z-index:2; left:50px; top:80px;">
         <h2 class="text-white p-4 font-monospace h3">
@@ -27,10 +27,7 @@
       </div>
 
       <nav aria-label="breadcrumb">
-        <div class="container position-relative">
-          <ToastMessages></ToastMessages>
-        </div>
-        <ol class="breadcrumb py-0 fs-3">
+        <ol class="breadcrumb py-0 fs-3 position-relative">
           <li class="breadcrumb-item ">
             <router-link to="/">
               <i class="bi bi-house-door-fill text-warning"></i>
@@ -39,6 +36,7 @@
           <li class="breadcrumb-item text-brown fw-bold" aria-current="page">
             {{ this.filteredType }}
           </li>
+          <ToastMessages></ToastMessages>
         </ol>
       </nav>
       <div class="row mt-4">
@@ -47,15 +45,17 @@
         <section class="list-group list-group-flush"
         v-for="(item, key) in category" :key="'category' + key">
           <button
-          class="list-group-item list-group-item-action router-link-active py-3 fw-bold"
+          class="list-group-item list-group-item-action router-link-active py-3 fw-bold
+          border-bottom"
           :class="{ 'active': filteredType === item }"
           aria-current="page" @click="handleChangeCategory(item)">
-          <i class="bi bi-caret-right-fill"></i> {{ item }} </button>
+          <i class="bi bi-caret-right-fill"
+          :class="{ 'text-warning': filteredType === item }"></i> {{ item }} </button>
         </section>
         </nav>
         <div class="col-md-8">
           <div class="row row-cols-md-3 g-2">
-            <div class="container col-11 col-md-4" v-for="item in currentPageData" :key="item.id">
+            <div class="col-10 mx-auto mx-md-0" v-for="item in currentPageData" :key="item.id">
               <ProductCard
                 :imageUrl="item.imageUrl"
                 :price="item.price"
@@ -126,7 +126,7 @@ export default {
       this.$http.post(url, { data: cart }).then((response) => {
         this.isLoading = false;
         this.$httpMessageState(response, '加入購物車');
-        this.$router.push('/products');
+        // this.$router.push('/products');
       });
     },
     handleChangeCategory(type) {

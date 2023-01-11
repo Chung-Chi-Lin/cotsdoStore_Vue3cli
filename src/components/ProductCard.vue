@@ -1,6 +1,7 @@
 <template>
   <div class="card mb-4 shadow text-center">
-    <img :src="imageUrl" class="card-img-top img-fluid" alt="..." style="height: 200px;">
+    <img :src="imageUrl" class="card-img-top img-fluid object-cover-center"
+    alt="..." style="height: 250px;">
     <div class="card-body" style="
       background-image: url(https://images.unsplash.com/photo-1615800098779-1be32e60cca3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=820&q=80);
     ">

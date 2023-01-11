@@ -16,7 +16,7 @@
       <div class="col">
         <div class="row">
           <div class="col-lg-6 mb-3">
-              <img  class="img-fluid rounded-3 shadow" src="https://images.unsplash.com/photo-1559135467-c3a6d0fba1d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" style="width: 500px; height: 400px;">
+              <img  class="img-fluid rounded-3 shadow object-cover-center" src="https://images.unsplash.com/photo-1559135467-c3a6d0fba1d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="台北總店面照片" style="height: 400px;">
             </div>
           <div class="col-lg-6">
             <div class="d-lg-flex flex-lg-column justify-content-lg-center
@@ -60,7 +60,7 @@
       <div class="col">
           <div class="row">
             <div class="col-lg-6 mb-3">
-              <img  class="img-fluid rounded-3 shadow" src="https://images.unsplash.com/photo-1565946802444-b5ac048a1e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="" style="width: 500px; height: 400px;">
+              <img  class="img-fluid rounded-3 shadow object-cover-center" src="https://images.unsplash.com/photo-1565946802444-b5ac048a1e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="貓咪雜貨店" style="height: 400px;">
             </div>
             <div class="col-lg-6">
               <div class="d-lg-flex flex-lg-column justify-content-lg-center
@@ -104,7 +104,7 @@
       <div class="col">
           <div class="row">
             <div class="col-lg-6 mb-3">
-              <img  class="img-fluid rounded-3 shadow" src="https://images.unsplash.com/photo-1564227503787-ad186f508e6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80" alt="" style="width: 500px; height: 400px;">
+              <img  class="img-fluid rounded-3 shadow object-cover-center" src="https://images.unsplash.com/photo-1564227503787-ad186f508e6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80" alt="高雄加盟店面" style="height: 400px;">
             </div>
             <div class="col-lg-6">
               <div class="d-lg-flex flex-lg-column justify-content-lg-center
@@ -148,7 +148,7 @@
       <div class="col">
           <div class="row">
             <div class="col-lg-6 mb-3">
-              <img  class="img-fluid rounded-3 shadow" src="https://images.unsplash.com/photo-1510226621137-6285ff880db6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="" style="width: 500px; height: 400px;">
+              <img  class="img-fluid rounded-3 shadow object-cover-center" src="https://images.unsplash.com/photo-1510226621137-6285ff880db6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="政府合作店面" style="height: 400px;">
             </div>
             <div class="col-lg-6">
               <div class="d-lg-flex flex-lg-column justify-content-lg-center
