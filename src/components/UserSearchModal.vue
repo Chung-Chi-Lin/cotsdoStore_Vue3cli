@@ -1,7 +1,7 @@
 <template>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" ref="modal"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="searchModal" tabindex="-1" ref="modal"
+    aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body d-flex justify-content-between">

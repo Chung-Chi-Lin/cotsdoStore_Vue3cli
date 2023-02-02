@@ -66,7 +66,7 @@
                     tempProduct.images[tempProduct.images.length - 1] || !tempProduct.images.length
                   "
                 >
-                  <button
+                  <button type="button"
                     class="btn btn-outline-primary btn-sm d-block w-100"
                     @click="tempProduct.images.push('')"
                   >新增圖片</button>
@@ -223,6 +223,13 @@ export default {
         if (res.data.success) {
           this.tempProduct.imageUrl = res.data.imageUrl;
         }
+      }).catch(() => {
+        this.$swal.fire({
+          icon: 'error',
+          title: '獲取圖片失敗，請重新載入!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
     },
   },

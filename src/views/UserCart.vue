@@ -1,15 +1,16 @@
 <template>
-  <loading-page :active="isLoading"></loading-page>
+  <LoadingPage :active="isLoading"></LoadingPage>
   <main class="container pb-5">
     <UserProgress :checkout-type="progressType"></UserProgress>
-  <!-- 購物車列表 -->
-    <section class="container py-5">
-      <div class="row px-5">
-        <div class="col-12 col-md-8 mb-5">
-          <div class="card">
-            <div class="card-header text-brown fw-bold fs-5 py-3">
-            購物車 ( {{ cartLength }} 件 )
-            </div>
+    <section class="container py-5 row">
+      <div class="col-lg-8 col-md-7 mb-3">
+        <section class="card mb-5">
+          <div class="card-header px-sm-3 px-2">
+            <h3 class="card-title fw-bold text-brown pt-2">購物車 ( {{ cartLength }} 件 )
+              <i class="bi bi-cart-plus-fill fs-2"></i>
+            </h3>
+          </div>
+          <div class="card-body px-sm-3 px-2">
             <ul class="list-group list-group-flush">
               <li class="list-group-item py-3 d-none d-md-block">
                   <tr class="d-flex justify-content-between text-brown">
@@ -23,7 +24,7 @@
               <li class="list-group-item" v-for="item in cart.carts" :key="item.id">
                 <template v-if="cart.carts">
                   <tr class="d-flex justify-content-between row g-0">
-                    <td class="col-6 col-md-3 mb-3">
+                    <td class="col-6 col-md-3 mb-3 d-flex align-items-center">
                       {{ item.product.title }}
                       <div class="text-success" v-if="item.coupon">
                         已套用優惠券
@@ -47,11 +48,11 @@
                               min="1"
                               :disabled="item.id === status.loadingItem"
                               @change="updateCart(item)"
-                              v-model.number="item.qty" style="width:50px">
+                              v-model.number="item.qty">
                         <div class="input-group-text">/ {{ item.product.unit }}</div>
                       </div>
                     </td>
-                    <td class="text-center col col-md-3 mt-3">
+                    <td class="text-md-center text-end col col-md-3 mt-3 fs-5">
                       <small v-if="cart.final_total !== cart.total"
                       class="text-success">折扣價:</small>
                       $ {{ $filters.currency(item.final_total) }}
@@ -69,8 +70,9 @@
               </li>
             </ul>
           </div>
-        </div>
-        <div class="col-12 col-md-4">
+        </section>
+      </div>
+      <div class="col-lg-4 col-md-5">
         <div class="card text-brown">
           <div class="card-header fw-bold fs-5 py-3">
             訂單資訊
@@ -112,15 +114,15 @@
             </div>
             <p>輸入<span class="bg-light fw-bold"> costdo85 </span> 即可享有 85 折優惠</p>
             <div class="d-flex justify-content-between mt-4">
-              <router-link to="/products" class="btn btn-outline-info btn-block mr-2 text-dark">
+              <router-link to="/products"
+              class="btn btn-outline-secondary btn-block mr-2">
                 繼續購物
               </router-link>
-              <router-link to="/user/order" class="btn btn-info btn-block mt-0">
+              <router-link to="/user/order" class="btn btn-success btn-block mt-0">
                 前往結帳
               </router-link>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </section>
@@ -154,8 +156,14 @@ export default {
       this.isLoading = true;
       this.$http.get(url).then((response) => {
         this.products = response.data.products;
-        console.log('products:', response);
         this.isLoading = false;
+      }).catch(() => {
+        this.$swal.fire({
+          icon: 'error',
+          title: '獲取商品失敗，請確認是否保持連線 !',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
     },
     getProduct(id) {
@@ -169,20 +177,32 @@ export default {
         qty: 1,
       };
       this.$http.post(url, { data: cart })
-        .then((res) => {
+        .then(() => {
           this.status.loadingItem = '';
-          console.log(res);
           this.getCart();
+        }).catch(() => {
+          this.$swal.fire({
+            icon: 'error',
+            title: '加入商品失敗，請確認是否有保持連線 !',
+            showConfirmButton: false,
+            timer: 1500,
+          });
         });
     },
     getCart() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
       this.$http.get(url).then((response) => {
-        console.log(response);
         this.cart = response.data.data;
         this.cartLength = response.data.data.carts.length;
         this.isLoading = false;
+      }).catch(() => {
+        this.$swal.fire({
+          icon: 'error',
+          title: '獲取失敗，請確認是否保持連線 !',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
     },
     updateCart(item) {
@@ -193,10 +213,16 @@ export default {
         product_id: item.product_id,
         qty: item.qty,
       };
-      this.$http.put(url, { data: cart }).then((res) => {
-        console.log(res);
+      this.$http.put(url, { data: cart }).then(() => {
         this.status.loadingItem = '';
         this.getCart();
+      }).catch(() => {
+        this.$swal.fire({
+          icon: 'error',
+          title: '新增失敗，請確認是否有保持連線 !',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
     },
     removeCartItem(id) {
@@ -208,18 +234,42 @@ export default {
         this.status.loadingItem = '';
         this.getCart();
         this.isLoading = false;
+      }).catch(() => {
+        this.$swal.fire({
+          icon: 'error',
+          title: '移除失敗，請確認是否有保持連線 !',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
     },
     addCouponCode() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/coupon`;
       const coupon = {
-        code: this.coupon_code,
+        code: this.coupon_code.trim(),
       };
       this.isLoading = true;
-      this.$http.post(url, { data: coupon }).then((response) => {
-        this.$httpMessageState(response, '加入優惠券');
-        this.getCart();
+      this.$http.post(url, { data: coupon }).then((res) => {
         this.isLoading = false;
+        if (res.data.success) {
+          this.$httpMessageState(res, '加入優惠券');
+          this.getCart();
+        } else {
+          this.$swal.fire({
+            icon: 'error',
+            title: '優惠碼錯誤',
+            text: '請確認是否輸入正確優惠碼 !',
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        }
+      }).catch(() => {
+        this.$swal.fire({
+          icon: 'error',
+          title: '加入優惠卷失敗，請確認是否有保持連線 !',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
     },
   },

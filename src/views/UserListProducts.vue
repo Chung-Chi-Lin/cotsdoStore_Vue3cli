@@ -1,5 +1,5 @@
 <template>
-  <loading-page :active="isLoading"></loading-page>
+  <LoadingPage :active="isLoading"></LoadingPage>
   <div class="border-bottom">
     <div class="container">
       <div class="d-none d-md-block" style="position:relative;">
@@ -34,7 +34,7 @@
             </router-link>
           </li>
           <li class="breadcrumb-item text-brown fw-bold" aria-current="page">
-            {{ this.filteredType }}
+            {{ filteredType }}
           </li>
           <ToastMessages></ToastMessages>
         </ol>
@@ -44,7 +44,7 @@
         <h3 class="list-group-item h4 mb-0 fw-bold text-white bg-brown py-3 px-3">商品目錄</h3>
         <section class="list-group list-group-flush"
         v-for="(item, key) in category" :key="'category' + key">
-          <button
+          <button type="button"
           class="list-group-item list-group-item-action router-link-active py-3 fw-bold
           border-bottom"
           :class="{ 'active': filteredType === item }"
@@ -105,12 +105,18 @@ export default {
       this.isLoading = true;
       this.$http.get(url).then((response) => {
         this.products = response.data.products;
-        console.log('products:', this.products);
         this.isLoading = false;
         const searchProduct = this.$route.query.product;
         if (!searchProduct) return;
         this.filteredType = '搜尋結果';
         this.searchResult = this.products.filter((item) => item.title.match(searchProduct));
+      }).catch(() => {
+        this.$swal.fire({
+          icon: 'error',
+          title: '獲取商品失敗，請確認是否有商品內容 !',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
     },
     getProduct(id) {
@@ -126,7 +132,8 @@ export default {
       this.$http.post(url, { data: cart }).then((response) => {
         this.isLoading = false;
         this.$httpMessageState(response, '加入購物車');
-        // this.$router.push('/products');
+      }).catch((err) => {
+        this.$httpMessageState(err, '加入失敗');
       });
     },
     handleChangeCategory(type) {

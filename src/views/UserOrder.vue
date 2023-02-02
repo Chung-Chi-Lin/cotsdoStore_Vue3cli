@@ -1,5 +1,5 @@
 <template>
-  <loading-page :active="isLoading"></loading-page>
+  <LoadingPage :active="isLoading"></LoadingPage>
   <main class="container pb-5">
     <UserProgress :checkout-type="progressType"></UserProgress>
     <section class="container py-5">
@@ -137,7 +137,7 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse"
                 aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                  <div class="accordion-body border-bottom" v-for="item in this.cart.carts"
+                  <div class="accordion-body border-bottom" v-for="item in cart.carts"
                   :key="item.product.id">
                     <div class="d-flex mb-2 text-brown fw-bold">
                       <img :src="item.product.imageUrl" alt="購物車圖片"
@@ -191,12 +191,15 @@
               <span>NT$ {{ $filters.currency(cart.final_total + 60) }}</span>
             </div>
             <div class="d-flex justify-content-between mt-4">
-              <router-link to="/user/cart" class="btn btn-outline-info
-              btn-block mr-2 text-dark">
+              <router-link to="/user/cart" class="btn btn-outline-secondary
+              btn-block mr-2">
                 返回購物車
               </router-link>
               <div class="text-end">
-                <button class="btn btn-info btn-block mt-0">送出訂單</button>
+                <button ref="btnSend" type="submit"
+                class="btn btn-success btn-block mt-0">
+                  送出訂單
+                </button>
               </div>
             </div>
           </div>
@@ -243,10 +246,16 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
       this.$http.get(url).then((response) => {
-        console.log(response);
         this.cart = response.data.data;
         this.cartLength = response.data.data.carts.length;
         this.isLoading = false;
+      }).catch(() => {
+        this.$swal.fire({
+          icon: 'error',
+          title: '獲取商品失敗，請確認是否有商家帳號密碼 !',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
     },
     createOrder() {
@@ -255,15 +264,20 @@ export default {
         user: this.user,
         message: this.message,
       };
-      console.log(order);
       this.$http.post(url, { data: order })
         .then((res) => {
-          console.log('a', res.data.orderId);
           if (res.data.success) {
             this.$router.push(`/user/checkout/${res.data.orderId}`);
           } else {
             this.$router.push('/user/checkout');
           }
+        }).catch(() => {
+          this.$swal.fire({
+            icon: 'error',
+            title: '轉址失敗，請確認是否保持連線 !',
+            showConfirmButton: false,
+            timer: 1500,
+          });
         });
     },
     // validate
@@ -286,12 +300,16 @@ export default {
           this.user.tel = this.info.tel;
         }
         this.user.address = this.info.county + this.info.dist + this.info.road;
+        if (this.user !== '' && this.info !== '') {
+          this.$refs.btnSend.disabled = false;
+        }
       },
       deep: true,
     },
   },
   mounted() {
     this.collapse = new Collapse(this.$refs.orderCollapse);
+    this.$refs.btnSend.disabled = true;
   },
   created() {
     this.getCart();

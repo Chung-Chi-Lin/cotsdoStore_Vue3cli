@@ -10,10 +10,12 @@ import {
 import AllRules from '@vee-validate/rules';
 import { localize, setLocale } from '@vee-validate/i18n';
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
+import VueSweetalert2 from 'vue-sweetalert2';
 import App from './App.vue';
 import router from './router';
 import { currency, date } from './methods/filters';
 import $httpMessageState from './methods/pushMessageState';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 const app = createApp(App);
 // 註冊全域 千分號、日期
@@ -35,8 +37,9 @@ setLocale('zh_TW');
 app.config.globalProperties.$httpMessageState = $httpMessageState;
 app.use(VueAxios, axios);
 app.use(router);
+app.use(VueSweetalert2);
 // 自訂 loading 樣式導入
-app.component('loading-page', Loading);
+app.component('LoadingPage', Loading);
 app.component('VForm', Form);
 app.component('VField', Field);
 app.component('ErrorMessage', ErrorMessage);

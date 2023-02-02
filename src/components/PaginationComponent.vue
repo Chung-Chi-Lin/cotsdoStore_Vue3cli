@@ -1,7 +1,7 @@
 <template>
   <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
-      <li class="page-item" :class="{ 'disabled': this.pages.has_pre === false }">
+      <li class="page-item" :class="{ 'disabled': pages.has_pre === false }">
         <a class="page-link" href="#" aria-label="Previous"
         @click.prevent="prePage">
           <i class="bi bi-chevron-left"></i>
@@ -13,7 +13,7 @@
           {{ page }}
         </a>
       </li>
-      <li class="page-item" :class="{ 'disabled': this.pages.has_next === false }">
+      <li class="page-item" :class="{ 'disabled': pages.has_next === false }">
         <a class="page-link" href="#" aria-label="Next"
         @click.prevent="nextPage">
           <i class="bi bi-chevron-right"></i>

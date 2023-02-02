@@ -1,7 +1,16 @@
 <template>
-  <div class="card mb-4 shadow text-center">
-    <img :src="imageUrl" class="card-img-top img-fluid object-cover-center"
-    alt="..." style="height: 250px;">
+  <div class="card mb-4 shadow-sm text-center">
+
+    <a href="#" @click.prevent="$emit('getProduct')" class="d-block item-hover">
+      <div class="mask">
+        <div class="caption">查看更多</div>
+      </div>
+      <div class="overflowHidden">
+        <div class="rounded-0 item-img img-fluid"
+          style="height: 253px"
+          :style="`background-image: url(${imageUrl})`"></div>
+      </div>
+    </a>
     <div class="card-body" style="
       background-image: url(https://images.unsplash.com/photo-1615800098779-1be32e60cca3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=820&q=80);
     ">
@@ -48,5 +57,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

@@ -1,7 +1,7 @@
 <template>
     <div class="position-relative m-5">
       <div class="progress" style="height: 3px;">
-        <div class="progress-bar bg-info" role="progressbar" :style="styleObject"
+        <div class="progress-bar bg-warning" role="progressbar" :style="styleObject"
         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
         </div>
       </div>
@@ -27,26 +27,6 @@
       translate-middle-x text-nowrap text-brown">訂單確認</span>
       </button>
     </div>
-
-    <div class="modal fade" id="exampleModal" ref="modal"
-    tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="btn-close"
-            data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
 </template>
 
 <script>
@@ -59,7 +39,7 @@ export default {
         width: '0%',
       },
       errorClass: 'btn-secondary',
-      successClass: 'btn-info',
+      successClass: 'btn-warning',
     };
   },
   methods: {

@@ -14,5 +14,6 @@
 @import "./helpers/components/bg-box";
 @import "./helpers/components/btn";
 @import "./helpers/components/card-shadow-hover";
+@import "./helpers/components/product-card";
 // 可以分別載入需要的資源減少專案大小，在此先載入全部樣式
 @import "~bootstrap/scss/bootstrap";

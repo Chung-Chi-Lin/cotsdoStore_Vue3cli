@@ -14,7 +14,7 @@
     </nav>
     <img src="https://images.unsplash.com/photo-1605067351740-c67d09a5cab7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80" class="d-md-none w-100 rounded-3 mb-5 object-cover-center"   alt="貓與女主人">
     <div class="text-center mb-1 f-kalam">
-      <h2 class="fw-bold">
+      <h2 class="h1 fw-bold text-brown">
         Costdo 寵物領養園區
         <i class="bi bi-balloon-heart-fill text-danger"></i>
       </h2>
@@ -62,7 +62,7 @@
                   </p>
                 </div>
                 <div class="border-top text-center">
-                  <button @click="goAdopt"
+                  <button @click="goAdopt" type="button"
                   class="btn f-kalam fw-bold pt-3 w-100 text">
                     MORE
                   </button>
@@ -87,7 +87,7 @@
                   </p>
                 </div>
                 <div class="border-top text-center">
-                  <button @click="goAdopt"
+                  <button @click="goAdopt" type="button"
                   class="btn f-kalam fw-bold pt-3 w-100 text">
                     MORE
                   </button>
@@ -112,7 +112,7 @@
                   </p>
                 </div>
                 <div class="border-top text-center">
-                  <button @click="goAdopt"
+                  <button @click="goAdopt" type="button"
                   class="btn f-kalam fw-bold pt-3 w-100 text">
                     MORE
                   </button>
@@ -136,7 +136,7 @@
                   </p>
                 </div>
                 <div class="border-top text-center">
-                  <button @click="goAdopt"
+                  <button @click="goAdopt" type="button"
                   class="btn f-kalam fw-bold pt-3 w-100 text">
                     MORE
                   </button>
@@ -160,7 +160,7 @@
                   </p>
                 </div>
                 <div class="border-top text-center">
-                  <button @click="goAdopt"
+                  <button @click="goAdopt" type="button"
                   class="btn f-kalam fw-bold pt-3 w-100 text">
                     MORE
                   </button>
@@ -184,7 +184,7 @@
                   </p>
                 </div>
                 <div class="border-top text-center">
-                  <button @click="goAdopt"
+                  <button @click="goAdopt" type="button"
                   class="btn f-kalam fw-bold pt-3 w-100 text">
                     MORE
                   </button>

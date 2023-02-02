@@ -25,6 +25,11 @@
     font-weight: bolder;
     }
 }
-.shadow-g {
-    box-shadow: 0 0 20px #82de61;
+.shadow-y {
+    box-shadow: 0 0 20px #9f6f00;
+}
+.pCard-h{
+    &:hover{
+        background-color: #9f6f00;
+    }
 }

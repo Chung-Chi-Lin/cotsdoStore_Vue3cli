@@ -15,9 +15,9 @@
     <div class="row row-cols-md-2 g-5 mb-5">
       <div class="col">
         <div class="row">
-          <div class="col-lg-6 mb-3">
-              <img  class="img-fluid rounded-3 shadow object-cover-center" src="https://images.unsplash.com/photo-1559135467-c3a6d0fba1d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="台北總店面照片" style="height: 400px;">
-            </div>
+          <div class="col-lg-6 mb-3 d-flex justify-content-center mb-4">
+            <img class="img-fluid rounded-3 shadow object-cover-center" src="https://images.unsplash.com/photo-1559135467-c3a6d0fba1d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="台北總店面照片" style="height: 400px;">
+          </div>
           <div class="col-lg-6">
             <div class="d-lg-flex flex-lg-column justify-content-lg-center
             h-100 px-lg-0 px-sm-2 px-3">
@@ -42,12 +42,12 @@
                   </ul>
                 </li>
                 <li class="mb-3 btn-h">
-                  <a href="tel:+886-6-3568688" class="text-decoration-none link-brown">
+                  <a :href="'tel:' + tel" class="text-decoration-none link-brown">
                     <i class="bi bi-telephone-forward-fill me-2 fs-5"></i> （06）356 - 1788
                   </a>
                 </li>
                 <li class="mb-2 btn-h">
-                  <a href="https://www.google.com.tw/?hl=zh_TW" class="text-decoration-none link-brown">
+                  <a :href="mail" class="text-decoration-none link-brown">
                     <i class="bi bi-envelope-at-fill me-2 fs-5"></i>
                     Costdo178@gmail.com
                   </a>
@@ -59,8 +59,8 @@
       </div>
       <div class="col">
           <div class="row">
-            <div class="col-lg-6 mb-3">
-              <img  class="img-fluid rounded-3 shadow object-cover-center" src="https://images.unsplash.com/photo-1565946802444-b5ac048a1e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="貓咪雜貨店" style="height: 400px;">
+            <div class="col-lg-6 mb-3 d-flex justify-content-center mb-4">
+              <img  class="img-fluid rounded-3 shadow object-cover-center" src="https://images.unsplash.com/photo-1601647999406-8a83ec3f727b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=852&q=80" alt="藍色系台中分店" style="height: 400px;">
             </div>
             <div class="col-lg-6">
               <div class="d-lg-flex flex-lg-column justify-content-lg-center
@@ -86,12 +86,12 @@
                     </ul>
                   </li>
                   <li class="mb-3 btn-h">
-                    <a href="tel:+886-6-3568688" class="text-decoration-none link-brown">
+                    <a :href="'tel:' + tel" class="text-decoration-none link-brown">
                       <i class="bi bi-telephone-forward-fill me-2 fs-5"></i> （06）356 - 8688
                     </a>
                   </li>
                   <li class="mb-2 btn-h">
-                    <a href="https://www.google.com.tw/?hl=zh_TW" class="text-decoration-none link-brown">
+                    <a :href="mail" class="text-decoration-none link-brown">
                       <i class="bi bi-envelope-at-fill me-2 fs-5"></i>
                       Costdo178@gmail.com
                     </a>
@@ -103,7 +103,7 @@
       </div>
       <div class="col">
           <div class="row">
-            <div class="col-lg-6 mb-3">
+            <div class="col-lg-6 mb-3 d-flex justify-content-center mb-4">
               <img  class="img-fluid rounded-3 shadow object-cover-center" src="https://images.unsplash.com/photo-1564227503787-ad186f508e6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80" alt="高雄加盟店面" style="height: 400px;">
             </div>
             <div class="col-lg-6">
@@ -130,12 +130,12 @@
                     </ul>
                   </li>
                   <li class="mb-3 btn-h">
-                    <a href="tel:+886-6-3568688" class="text-decoration-none link-brown">
+                    <a :href="'tel:' + tel" class="text-decoration-none link-brown">
                       <i class="bi bi-telephone-forward-fill me-2 fs-5"></i> （06）181 - 1788
                     </a>
                   </li>
                   <li class="mb-2 btn-h">
-                    <a href="https://www.google.com.tw/?hl=zh_TW" class="text-decoration-none link-brown">
+                    <a :href="mail" class="text-decoration-none link-brown">
                       <i class="bi bi-envelope-at-fill me-2 fs-5"></i>
                       Costdo178@gmail.com
                     </a>
@@ -147,8 +147,8 @@
       </div>
       <div class="col">
           <div class="row">
-            <div class="col-lg-6 mb-3">
-              <img  class="img-fluid rounded-3 shadow object-cover-center" src="https://images.unsplash.com/photo-1510226621137-6285ff880db6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="政府合作店面" style="height: 400px;">
+            <div class="col-lg-6 mb-3 d-flex justify-content-center mb-4">
+              <img  class="img-fluid rounded-3 shadow object-cover-center" src="https://images.unsplash.com/photo-1601647998384-a6e5b618e8f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=940&q=80" alt="政府合作店面" style="height: 400px;">
             </div>
             <div class="col-lg-6">
               <div class="d-lg-flex flex-lg-column justify-content-lg-center
@@ -174,12 +174,12 @@
                     </ul>
                   </li>
                   <li class="mb-3 btn-h">
-                    <a href="tel:+886-6-3568688" class="text-decoration-none link-brown">
+                    <a :href="'tel:' + tel" class="text-decoration-none link-brown">
                       <i class="bi bi-telephone-forward-fill me-2 fs-5"></i> （06）520 - 1798
                     </a>
                   </li>
                   <li class="mb-2 btn-h">
-                    <a href="https://www.google.com.tw/?hl=zh_TW" class="text-decoration-none link-brown">
+                    <a :href="mail" class="text-decoration-none link-brown">
                       <i class="bi bi-envelope-at-fill me-2 fs-5"></i>
                       Costdo178@gmail.com
                     </a>
@@ -192,3 +192,14 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      tel: '+886-6-3568688',
+      mail: 'https://www.google.com.tw/?hl=zh_TW',
+    };
+  },
+};
+</script>

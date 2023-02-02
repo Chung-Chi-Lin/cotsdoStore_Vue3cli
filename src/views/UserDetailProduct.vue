@@ -1,5 +1,5 @@
 <template>
-  <loading-page :active="isLoading"></loading-page>
+  <LoadingPage :active="isLoading"></LoadingPage>
   <div class="container py-5">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb fs-4 pb-4" aria-label="breadcrumb">
@@ -15,7 +15,7 @@
     </nav>
     <div class="row">
       <div class="col-md-6">
-        <img :src="product.imageUrl" class="img-fluid rounded-4">
+        <img :src="product.imageUrl" class="img-fluid rounded-4" :alt="product.title">
       </div>
       <div class="col-md-4 offset-md-1">
         <h5 class="mt-2 h2 text-brown fw-bold">{{ product.title }}
@@ -28,9 +28,22 @@
           v-if="product.origin_price">
           定價 NT${{ product.origin_price  }}
         </p>
-        <h5 class="price-lg mb-3 text-brown fw-bold">
-          <p class="mr-2 fw-bold">優惠價 <span v-if="product.price">NT${{ product.price  }}</span></p>
-        </h5>
+        <div class="row my-3">
+          <div class="col">
+            <h5 class="price-lg mb-3 text-brown fw-bold">
+              <p class="mr-2 fw-bold">優惠價
+              <span v-if="product.price">NT${{ product.price  }}</span></p>
+            </h5>
+          </div>
+          <div class="col ">
+            <div class="input-group input-group-sm col-6">
+              <input type="number" class="form-control" aria-label="商品數量"
+                    min="1"
+                    v-model.number="qty">
+              <span class="input-group-text">/ {{ product.unit }}入</span>
+            </div>
+          </div>
+        </div>
         <button type="button" class="btn btn-brown btn-sm rounded-2 w-100 py-2 fs-5"
           @click="addToCart(product.id)">
           <i class="bi bi-cart-plus-fill me-2"></i>
@@ -96,14 +109,14 @@
 </template>
 
 <script>
-import Swal from 'sweetalert2';
-
 export default {
   data() {
     return {
       products: [],
       product: {},
       id: '',
+      qty: 1,
+      isLoading: false,
     };
   },
   methods: {
@@ -111,34 +124,42 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.id}`;
       this.isLoading = true;
       this.$http.get(api).then((response) => {
-        console.log(response.data);
         this.isLoading = false;
         this.product = response.data.product;
         const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
         this.$http.get(url).then((res) => {
-          // eslint-disable-next-line
-          const filter = res.data.products.filter((item) => item.category === this.product.category);
+          const filter = res.data.products.filter(
+            (item) => item.category === this.product.category,
+          );
           this.products = filter;
           if (this.products.length > 3) {
             this.products.splice(3);
           }
-          console.log('res', this.products);
         });
       });
     },
-    addToCart(id, qty = 1) {
+    addToCart(id) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       const cart = {
         product_id: id,
-        qty,
+        qty: this.qty,
       };
       this.isLoading = true;
       this.$http.post(url, { data: cart }).then((response) => {
         this.isLoading = false;
         this.$httpMessageState(response, '加入購物車');
-        Swal.fire({
+        this.$swal.fire({
           icon: 'success',
           title: '已加入購物車',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }).catch((err) => {
+        console.log(err);
+        this.isLoading = false;
+        this.$swal.fire({
+          icon: 'error',
+          title: '新增失敗，請確認是否有保持連線 !',
           showConfirmButton: false,
           timer: 1500,
         });

@@ -50,8 +50,6 @@
 </template>
 
 <script>
-import Swal from 'sweetalert2';
-
 export default {
   data() {
     return {
@@ -71,13 +69,20 @@ export default {
             document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
             this.$router.push('/dashboard/products');
           } else {
-            Swal.fire({
+            this.$swal.fire({
               icon: 'error',
               title: '登入失敗，請確認是否有商家帳號密碼 !',
               showConfirmButton: false,
               timer: 1500,
             });
           }
+        }).catch(() => {
+          this.$swal.fire({
+            icon: 'error',
+            title: '登入失敗，請確認是否有商家帳號密碼 !',
+            showConfirmButton: false,
+            timer: 1500,
+          });
         });
     },
   },

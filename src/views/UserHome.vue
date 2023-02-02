@@ -1,11 +1,11 @@
 <template>
-  <header>
+  <header class="container mt-5">
     <img class="img-fluid d-md-none" src="https://images.unsplash.com/photo-1571748847329-20aaf49a03b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="貓咪打哈欠">
   <div id="carouselExampleSlidesOnly"
   class="carousel slide d-none d-md-block" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="4000">
-      <img src="https://images.unsplash.com/photo-1573435567032-ff5982925350?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80" class="d-block w-100 img-fluid object-cover-top" alt="dog&cat" style="height:700px">
+      <img src="https://images.unsplash.com/photo-1573435567032-ff5982925350?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80" class="d-block w-100 img-fluid object-cover-top rounded-3" alt="dog&cat" style="height:620px">
       <div class="carousel-caption d-none d-md-block bg-box">
         <h2 class="mb-3">榮獲優良寵物飼料優等
           <i class="bi bi-clipboard-check-fill text-warning"></i>
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="carousel-item" data-bs-interval="4000">
-      <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1586&q=80" class="d-block w-100 img-fluid object-cover-center" alt="dog&cat" style="height:700px">
+      <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1586&q=80" class="d-block w-100 img-fluid object-cover-center rounded-3" alt="dog&cat" style="height:620px">
       <div class="carousel-caption d-none d-md-block bg-box">
         <h2 class="mb-3">榮獲在地環境保育政府獎
           <i class="bi bi-clipboard-check-fill text-warning"></i>
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="carousel-item" data-bs-interval="4000">
-      <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80" class="d-block w-100 img-fluid object-cover-bottom" alt="mouse" style="height:700px">
+      <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80" class="d-block w-100 img-fluid object-cover-bottom rounded-3" alt="mouse" style="height:620px">
       <div class="carousel-caption d-none d-md-block bg-box">
         <h2 class="mb-3">國外倉鼠比賽舉辦商優選
           <i class="bi bi-clipboard-check-fill text-warning"></i>
@@ -54,9 +54,9 @@
         <div class="row flex-row-reverse g-5">
           <div class="col-lg-5">
             <img
-              class="img-fluid rounded-5 shadow-g"
+              class="img-fluid rounded-5 shadow-y"
               src="https://images.unsplash.com/photo-1507145569372-d69bae8bc9a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1546&q=80"
-              alt="smile"
+              alt="黃色狗面對鏡頭微笑"
             />
           </div>
           <div class="col-lg-7 align-self-center text-center">
@@ -232,12 +232,10 @@
                     依消費者保護法之規定，線上購物消費者享有商品貨到日起七天內(含例假日)
                   </li>
                   <li class="mb-2">
-                    消費者有猶豫期的權益。但猶豫期並非試用期，如您有退/換貨需求時，請保持商品本體、贈品、內外包裝、發
-                    票及所有附隨文件或資料的完整性，有任何缺漏或毀損，恕不接受退貨申請。
+                    如您有退/換貨需求時，請保持商品本體、發票及所有附隨文件或資料的完整性，有任何缺漏或毀損，恕不接受退貨申請。
                   </li>
                   <li>
-                    外包裝及其內容物、贈品等均屬於商品的一部分，消費者於猶豫期間主張退貨者，本公司將依照商品於退貨時之
-                    不完整程度(遺失、毀損或缺件等)，就商品價金之範圍內扣除回復原狀費用後，返還剩餘價金與消費者。
+                    本公司將依照商品於退貨時之不完整程度，就商品價金之範圍內扣除回復原狀費用後，返還剩餘價金與消費者。
                   </li>
                 </ol>
               </div>
@@ -293,23 +291,20 @@
                 ><br />
                 <ol class="lh-lg mt-2">
                   <li class="mb-2">
-                    <strong>信用卡線上刷卡(VISA/MasterCard/JCB)說明</strong>
-                    <br />採用永豐銀行刷卡系統信用卡付費機制平台，提供了絕對安全可靠的網路付款機制。
-                    您可直接於網路上付款，在安全與方便之間取得極佳的平衡點。繳款完畢後，無須通知我們，我們會直接與銀行對帳確認。
-                    ※線上刷卡會需要一些時間進行作業，過程中請勿關閉頁面或重新整理頁面，會影響交易流程，並導致入帳作業延遲或有誤。
+                    <strong>信用卡線上刷卡(VISA/MasterCard/JCB)說明：</strong>
+                    採用銀行刷卡系統信用卡付費機制平台，提供了絕對安全可靠的網路付款機制。
                   </li>
                   <li class="mb-2">
-                    <strong>ATM轉帳說明：</strong><br />
-                    請您於下單後三天內，依照訂單明細提供之匯款帳號(如下)至ATM臨櫃轉帳或線上轉帳，匯款完成後請您登入會員並至會員專區中「訂單查詢」
-                    ，並於該筆訂單留言填寫您『匯出帳戶的末5碼』或來電0985-654-321告知，以利我們確認是否收到貨款。
+                    <strong>ATM轉帳說明：</strong>
+                    於該筆訂單留言填寫您『匯出帳戶的末5碼』或來電0985-654-321告知，以利我們確認是否收到貨款。
                   </li>
                   <li class="mb-2">
-                    <strong>超商取貨付款說明：</strong
-                    >出貨方式選擇超商取貨者，可於收到貨到通知的簡訊或Email，於指定超商取貨付款。
+                    <strong>超商取貨付款說明：</strong>
+                    出貨方式選擇超商取貨者，可於收到貨到通知的簡訊或Email，於指定超商取貨付款。
                   </li>
                   <li>
-                    <strong>貨到付款(付現)說明：</strong
-                    >宅配人員將貨物送達時，直接支付現金給宅配人員即可。
+                    <strong>貨到付款(付現)說明：</strong>
+                    宅配人員將貨物送達時，直接支付現金給宅配人員即可。
                   </li>
                 </ol>
               </div>

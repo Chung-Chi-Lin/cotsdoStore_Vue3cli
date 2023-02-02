@@ -1,5 +1,5 @@
 <template>
-  <loading-page :active="isLoading"></loading-page>
+  <LoadingPage :active="isLoading"></LoadingPage>
   <section class="container">
     <UserProgress :checkout-type="progressType"></UserProgress>
   </section>
@@ -84,12 +84,12 @@
 
         <div class="row justify-content-around px-sm-3 pb-3 "
         v-if="order.is_paid === false">
-          <router-link to="/products" class="col-5 py-2 btn btn-outline-info
+          <router-link to="/products" class="col-5 py-2 btn btn-outline-success
             btn-block text-dark">
               繼續購物
           </router-link>
           <button
-          type="button" class="col-5 btn btn-info btn-block mt-0 ml-3" @click="payOrder"
+          type="button" class="col-5 btn btn-success btn-block mt-0 ml-3" @click="payOrder"
           >確認付款去</button>
         </div>
       </section>
@@ -101,7 +101,6 @@
 <script>
 import Collapse from 'bootstrap/js/dist/collapse';
 import UserProgress from '@/components/UserProgress.vue';
-import Swal from 'sweetalert2';
 
 export default {
   components: {
@@ -117,8 +116,7 @@ export default {
       styleObject: {
         width: '0%',
       },
-      errorClass: 'btn-secondary',
-      successClass: 'btn-info',
+
       progressType: 'check',
       collapse: null,
     };
@@ -131,7 +129,6 @@ export default {
         .then((res) => {
           if (res.data.success) {
             this.order = res.data.order;
-            console.log(this.order);
             this.isLoading = false;
           }
         });
@@ -140,17 +137,23 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${this.orderId}`;
       this.$http.post(url)
         .then((res) => {
-          Swal.fire({
+          this.$swal.fire({
             position: 'center',
             icon: 'success',
             title: '您已成功付款 ! 已安排出貨 !',
             showConfirmButton: false,
             timer: 2000,
           });
-          console.log(res);
           if (res.data.success) {
             this.getOrder();
           }
+        }).catch(() => {
+          this.$swal.fire({
+            icon: 'error',
+            title: '付款失敗，請確認是否為商家配合付款方式 !',
+            showConfirmButton: false,
+            timer: 1500,
+          });
         });
     },
   },
@@ -159,7 +162,6 @@ export default {
   },
   created() {
     this.orderId = this.$route.params.orderId;
-    console.log(this.orderId);
     this.getOrder();
   },
 };
