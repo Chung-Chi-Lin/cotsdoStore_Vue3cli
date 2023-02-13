@@ -6,8 +6,7 @@
     ref="modal"
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
+    aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content border-0">
         <div class="modal-header bg-dark text-white">

@@ -1,47 +1,51 @@
 <template>
   <header class="container mt-5">
     <img class="img-fluid d-md-none" src="https://images.unsplash.com/photo-1571748847329-20aaf49a03b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="貓咪打哈欠">
-  <div id="carouselExampleSlidesOnly"
-  class="carousel slide d-none d-md-block" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="4000">
-      <img src="https://images.unsplash.com/photo-1573435567032-ff5982925350?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80" class="d-block w-100 img-fluid object-cover-top rounded-3" alt="dog&cat" style="height:620px">
-      <div class="carousel-caption d-none d-md-block bg-box">
-        <h2 class="mb-3">榮獲優良寵物飼料優等
-          <i class="bi bi-clipboard-check-fill text-warning"></i>
-        </h2>
-        <p class="fs-5 f-kalam">2019~2022 寵物食品稽查通過
-          <i class="bi bi-check-lg text-danger fs-4"></i></p>
-        <p class="fs-5 f-kalam">2015~2021 食品發明獲獎優等
-          <i class="bi bi-check-lg text-danger fs-4"></i></p>
+    <div id="carouselExampleSlidesOnly"
+      class="carousel slide d-none d-md-block" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="4000">
+          <img src="https://images.unsplash.com/photo-1573435567032-ff5982925350?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80" class="d-block w-100 object-cover-top rounded-3 carousel-h" alt="dog&cat">
+          <div class="carousel-caption d-none d-md-block bg-box">
+            <h2 class="mb-3">榮獲優良寵物飼料優等
+              <i class="bi bi-clipboard-check-fill text-warning"></i>
+            </h2>
+            <p class="fs-5 f-kalam">2019~2022 寵物食品稽查通過
+              <i class="bi bi-check-lg text-danger fs-4"></i></p>
+            <p class="fs-5 f-kalam">2015~2021 食品發明獲獎優等
+              <i class="bi bi-check-lg text-danger fs-4"></i></p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+          <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1586&q=80" class="d-block w-100 object-cover-center rounded-3 carousel-h" alt="dog&cat">
+          <div class="carousel-caption d-none d-md-block bg-box">
+            <h2 class="mb-3">榮獲在地環境保育政府獎
+              <i class="bi bi-clipboard-check-fill text-warning"></i>
+            </h2>
+            <p class="fs-5 f-kalam">2019~2022 水土保持一級棒獎
+              <i class="bi bi-check-lg text-danger fs-4"></i>
+            </p>
+            <p class="fs-5 f-kalam">2016~2022 在地農耕配合保育
+              <i class="bi bi-check-lg text-danger fs-4"></i>
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+          <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80" class="d-block w-100 carousel-h object-cover-bottom rounded-3" alt="mouse">
+          <div class="carousel-caption d-none d-md-block bg-box">
+            <h2 class="mb-3">國外倉鼠比賽舉辦商優選
+              <i class="bi bi-clipboard-check-fill text-warning"></i>
+            </h2>
+            <p class="fs-5 f-kalam">2017~2022 國外活動指定舉辦方
+              <i class="bi bi-check-lg text-danger fs-4"></i>
+            </p>
+            <p class="fs-5 f-kalam">2019~2021 國外寵物用品指定商
+              <i class="bi bi-check-lg text-danger fs-4"></i>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="carousel-item" data-bs-interval="4000">
-      <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1586&q=80" class="d-block w-100 img-fluid object-cover-center rounded-3" alt="dog&cat" style="height:620px">
-      <div class="carousel-caption d-none d-md-block bg-box">
-        <h2 class="mb-3">榮獲在地環境保育政府獎
-          <i class="bi bi-clipboard-check-fill text-warning"></i>
-        </h2>
-        <p class="fs-5 f-kalam">2019~2022 水土保持一級棒獎
-          <i class="bi bi-check-lg text-danger fs-4"></i></p>
-        <p class="fs-5 f-kalam">2016~2022 在地農耕配合保育
-          <i class="bi bi-check-lg text-danger fs-4"></i></p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="4000">
-      <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80" class="d-block w-100 img-fluid object-cover-bottom rounded-3" alt="mouse" style="height:620px">
-      <div class="carousel-caption d-none d-md-block bg-box">
-        <h2 class="mb-3">國外倉鼠比賽舉辦商優選
-          <i class="bi bi-clipboard-check-fill text-warning"></i>
-        </h2>
-        <p class="fs-5 f-kalam">2017~2022 國外活動指定舉辦方
-          <i class="bi bi-check-lg text-danger fs-4"></i></p>
-        <p class="fs-5 f-kalam">2019~2021 國外寵物用品指定商
-          <i class="bi bi-check-lg text-danger fs-4"></i></p>
-      </div>
-    </div>
-  </div>
-</div>
   </header>
   <main class="py-5">
     <div class="container">
@@ -102,7 +106,7 @@
             <li class="col">
               <div class="card shadow border-0 card-h">
                 <div class="card-body text-center py-4">
-                  <img src="../assets/home-img/our-people-icon-2x.png" alt="專業團隊img">
+                  <img src="@/assets/home-img/our-people-icon-2x.png" alt="專業團隊img">
                   <h4 class="card-title fw-bold pt-2">
                     <span class="f-kalam text-danger">100%</span>
                     專業團隊
@@ -151,12 +155,8 @@
         <span class="f-kalam text-danger">85 折</span>
         <i class="bi bi-stars text-warning"></i>
       </h2>
-      <section
-        id="carouselExampleFade"
-        class="carousel carousel-dark slide"
-        data-bs-ride="carousel"
-        ref="homeCarousel"
-      >
+      <section id="carouselExampleFade" class="carousel carousel-dark slide" data-bs-ride="carousel"
+        ref="homeCarousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
@@ -174,7 +174,7 @@
           </div>
           <div class="carousel-item">
             <img
-              src="../assets/home-img/carousel-3.jpg"
+              src="@/assets/home-img/carousel-3.jpg"
               class="d-block w-100 h-100 object-cover-center"
               alt="寵物展"
             />

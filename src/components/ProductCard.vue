@@ -1,19 +1,15 @@
 <template>
   <div class="card mb-4 shadow-sm text-center">
-
     <a href="#" @click.prevent="$emit('getProduct')" class="d-block item-hover">
       <div class="mask">
         <div class="caption">查看更多</div>
       </div>
       <div class="overflowHidden">
-        <div class="rounded-0 item-img img-fluid"
-          style="height: 253px"
-          :style="`background-image: url(${imageUrl})`"></div>
+        <img class="rounded-0 item-img img-fluid" :src="imageUrl"
+        :alt="title" style="height: 253px">
       </div>
     </a>
-    <div class="card-body" style="
-      background-image: url(https://images.unsplash.com/photo-1615800098779-1be32e60cca3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=820&q=80);
-    ">
+    <div class="card-body card-bg">
       <h5 class="card-title text-brown fw-bold fs-4 f-kalam">{{ title }}</h5>
       <p class="card-text" v-if="!price">{{ origin_price }} 元</p>
       <p class="card-text text-decoration-line-through my-0 f-kalam"

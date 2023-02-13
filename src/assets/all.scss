@@ -11,9 +11,10 @@
 @import "./helpers/utilities";
 //custom
 @import "./helpers/base/fontStyle";
-@import "./helpers/components/bg-box";
 @import "./helpers/components/btn";
-@import "./helpers/components/card-shadow-hover";
-@import "./helpers/components/product-card";
+@import "./helpers/components/card-hover";
+@import "./helpers/components/carousel";
+@import "./helpers/components/universal";
+@import "./helpers/components/progress";
 // 可以分別載入需要的資源減少專案大小，在此先載入全部樣式
 @import "~bootstrap/scss/bootstrap";

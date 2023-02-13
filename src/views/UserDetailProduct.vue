@@ -1,5 +1,5 @@
 <template>
-  <LoadingPage :active="isLoading"></LoadingPage>
+  <VueLoading :active="isLoading" />
   <div class="container py-5">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb fs-4 pb-4" aria-label="breadcrumb">
@@ -61,7 +61,7 @@
               <p v-else-if="product.category = '保健用品'">常溫、低溫寵物食品有專業貨車配送，及產品防撞確實，讓商品到手中不再變形!</p>
             </div>
           </div>
-          <hr style="border-top: 1px solid rgba(0, 0, 0, 0.5);">
+          <hr>
           <div class="mb-1">
             <h6 class="text-secondary"><i class="bi bi-file-text me-2"></i>產品描述：</h6>
           </div>
@@ -109,6 +109,8 @@
 </template>
 
 <script>
+import emitter from '@/methods/emitter';
+
 export default {
   data() {
     return {
@@ -147,6 +149,7 @@ export default {
       this.isLoading = true;
       this.$http.post(url, { data: cart }).then((response) => {
         this.isLoading = false;
+        emitter.emit('getCartLength');
         this.$httpMessageState(response, '加入購物車');
         this.$swal.fire({
           icon: 'success',

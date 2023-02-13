@@ -1,5 +1,5 @@
 <template>
-  <LoadingPage :active="isLoading"></LoadingPage>
+  <VueLoading :active="isLoading" />
   <main class="container pb-5">
     <UserProgress :checkout-type="progressType"></UserProgress>
     <section class="container py-5">
@@ -82,8 +82,7 @@
                       :class="{ 'is-invalid': errors['縣市'] }"
                       rules="required"
                       v-model="info.county"
-                      as="select"
-                      >
+                      as="select">
                       <option value="" disabled>請選擇縣市</option>
                       <option :value="key"
                       v-for="(value, key, i) in countyData" :key="i">{{ key }}</option>
@@ -99,9 +98,7 @@
                       placeholder="請輸入地區"
                       rules="required"
                       v-model="info.dist"
-                      as="select"
-                      @change="info.dist = ''"
-                      >
+                      as="select">
                       <option value="" disabled>請先選擇縣市</option>
                       <option :value="item"
                       v-for="item in countyData[info.county]" :key="item">{{ item }}</option>
@@ -141,7 +138,7 @@
                   :key="item.product.id">
                     <div class="d-flex mb-2 text-brown fw-bold">
                       <img :src="item.product.imageUrl" alt="購物車圖片"
-                      class="me-2" style="height:70px; width: 70px;">
+                      class="me-2 order-cart-img">
                       <div class="d-flex flex-column flex-grow-1">
                         <h5 class="h6 fw-bold">{{ item.product.title }}</h5>
                         <div class="d-flex flex-column mt-auto text-right">
@@ -166,43 +163,44 @@
               <h3 class="card-title h5 pt-2 fw-bold text-brown"> 訂單資訊 </h3>
             </div>
             <div class="card-body">
-            <div class="d-flex justify-content-between mb-2"
-            v-if="cart.final_total === cart.total">
-              <span>原價：</span>
-              <span>NT$ {{ $filters.currency(cart.total) }}</span>
-            </div>
-            <div v-else class="d-flex justify-content-between mb-2 text-success" >
-              <span>折扣價：</span>
-              <span>NT$ {{ $filters.currency(cart.final_total) }}</span>
-            </div>
-            <div class="d-flex justify-content-between mb-2">
-              <span>運費：</span>
-              <span>NT$ 60</span>
-            </div>
-            <hr>
-            <div class="d-flex justify-content-between mb-3 fw-bold"
-            v-if="cart.final_total === cart.total">
-              <span>合計：</span>
-              <span>NT$ {{ $filters.currency(cart.total + 60) }}</span>
-            </div>
-            <div v-else-if="cart.final_total !== cart.total"
-            class="d-flex justify-content-between mb-3 text-success fw-bold">
-              <span>折扣價：</span>
-              <span>NT$ {{ $filters.currency(cart.final_total + 60) }}</span>
-            </div>
-            <div class="d-flex justify-content-between mt-4">
-              <router-link to="/user/cart" class="btn btn-outline-secondary
-              btn-block mr-2">
-                返回購物車
-              </router-link>
-              <div class="text-end">
-                <button ref="btnSend" type="submit"
-                class="btn btn-success btn-block mt-0">
-                  送出訂單
-                </button>
+              <div class="d-flex justify-content-between mb-2"
+                v-if="cart.final_total === cart.total">
+                <span>原價：</span>
+                <span>NT$ {{ $filters.currency(cart.total) }}</span>
+              </div>
+              <div v-else class="d-flex justify-content-between mb-2 text-success" >
+                <span>折扣價：</span>
+                <span>NT$ {{ $filters.currency(cart.final_total) }}</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2">
+                <span>運費：</span>
+                <span>NT$ 60</span>
+              </div>
+              <hr>
+              <div class="d-flex justify-content-between mb-3 fw-bold"
+              v-if="cart.final_total === cart.total">
+                <span>合計：</span>
+                <span>NT$ {{ $filters.currency(cart.total + 60) }}</span>
+              </div>
+              <div v-else-if="cart.final_total !== cart.total"
+              class="d-flex justify-content-between mb-3 text-success fw-bold">
+                <span>折扣價：</span>
+                <span>NT$ {{ $filters.currency(cart.final_total + 60) }}</span>
+              </div>
+              <div class="d-flex justify-content-between mt-4">
+                <router-link to="/user/cart" class="btn btn-outline-secondary
+                btn-block mr-2">
+                  返回購物車
+                </router-link>
+                <div class="text-end">
+                  <button type="submit"
+                  class="btn btn-success btn-block mt-0"
+                  :disabled="Object.keys(errors).length > 0">
+                    送出訂單
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
           </section>
         </div>
       </v-form>
@@ -300,16 +298,12 @@ export default {
           this.user.tel = this.info.tel;
         }
         this.user.address = this.info.county + this.info.dist + this.info.road;
-        if (this.user !== '' && this.info !== '') {
-          this.$refs.btnSend.disabled = false;
-        }
       },
       deep: true,
     },
   },
   mounted() {
     this.collapse = new Collapse(this.$refs.orderCollapse);
-    this.$refs.btnSend.disabled = true;
   },
   created() {
     this.getCart();

@@ -43,6 +43,30 @@ const routes = [
       },
     ],
   },
+  // background
+  {
+    path: '/dashboard',
+    component: () => import('../views/BackgroundBoard.vue'),
+    children: [
+      {
+        path: 'products',
+        component: () => import('../views/BackgroundProducts.vue'),
+      },
+      {
+        path: 'orders',
+        component: () => import('../views/BackgroundOrders.vue'),
+      },
+      {
+        path: 'coupons',
+        component: () => import('../views/BackgroundCoupons.vue'),
+      },
+    ],
+  },
+  // login
+  {
+    path: '/login',
+    component: () => import('../views/LoginView.vue'),
+  },
   {
     path: '/:pathMatch(.*)*',
     redirect: {

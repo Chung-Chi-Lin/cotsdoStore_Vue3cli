@@ -39,7 +39,7 @@ app.use(VueAxios, axios);
 app.use(router);
 app.use(VueSweetalert2);
 // 自訂 loading 樣式導入
-app.component('LoadingPage', Loading);
+app.component('VueLoading', Loading);
 app.component('VForm', Form);
 app.component('VField', Field);
 app.component('ErrorMessage', ErrorMessage);

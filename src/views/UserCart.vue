@@ -1,5 +1,5 @@
 <template>
-  <LoadingPage :active="isLoading"></LoadingPage>
+  <VueLoading :active="isLoading" />
   <main class="container pb-5">
     <UserProgress :checkout-type="progressType"></UserProgress>
     <section class="container py-5 row">
@@ -10,7 +10,7 @@
               <i class="bi bi-cart-plus-fill fs-2"></i>
             </h3>
           </div>
-          <div class="card-body px-sm-3 px-2">
+          <div class="card-body px-sm-3 px-2" v-if="cartLength">
             <ul class="list-group list-group-flush">
               <li class="list-group-item py-3 d-none d-md-block">
                   <tr class="d-flex justify-content-between text-brown">
@@ -40,7 +40,7 @@
                     </td>
                     <td class="col-12 col-md-3">
                       <img :src="item.product.imageUrl" alt="購物車圖片"
-                      class="img-fluid" style="height:100px; width: 110px;">
+                      class="cart-img">
                     </td>
                     <td class="col-5 col-md-2 mt-3">
                       <div class="input-group input-group-sm">
@@ -59,9 +59,9 @@
                     </td>
                     <td class="text-center col col-md-1 mt-3">
                       <button type="button" class="btn btn-outline-danger
-                      btn-sm ms-2 d-none d-md-inline"
-                              :disabled="status.loadingItem === item.id"
-                              @click="removeCartItem(item.id)">
+                        btn-sm ms-2 d-none d-md-inline"
+                        :disabled="status.loadingItem === item.id"
+                        @click="removeCartItem(item.id)">
                         <i class="bi bi-x"></i>
                       </button>
                     </td>
@@ -69,6 +69,16 @@
                 </template>
               </li>
             </ul>
+          </div>
+          <div class="mx-auto text-center p-5 position-relative mt-5" v-else>
+            <button type="button" class="btn btn-lg btn-success position-relative
+              position-absolute top-0 start-50 f-kalam btn-h" @click="goProducts">
+              返回商品頁
+              <i class="bi text-success bi-caret-down-fill position-absolute top-100 start-50
+              translate-middle mt-1 fs-3"></i>
+            </button>
+            <img class="img-fluid mt-2" src="@/assets/home-img/picwish.png" alt="黑白毛色狗">
+            <h4 class="text-brown fw-bold bg-warning p-2 rounded mt-3">您還沒有加入任何商品哦 !</h4>
           </div>
         </section>
       </div>
@@ -98,16 +108,17 @@
               <span>NT$ {{ $filters.currency(cart.total + 60) }}</span>
             </div>
             <div v-else-if="cart.final_total !== cart.total"
-            class="d-flex justify-content-between mb-3 text-success fw-bold">
+              class="d-flex justify-content-between mb-3 text-success fw-bold">
               <span>折扣價：</span>
               <span>NT$ {{ $filters.currency(cart.final_total + 60) }}</span>
             </div>
             <div class="input-group mb-3 input-group-sm">
               <input type="text" class="form-control" v-model="coupon_code"
-              aria-label="請輸入優惠碼"
-              placeholder="請輸入優惠碼">
+                aria-label="請輸入優惠碼"
+                placeholder="請輸入優惠碼">
               <div class="input-group-append input-group-sm">
-                <button class="btn btn-outline-dark" type="button" @click="addCouponCode">
+                <button class="btn btn-outline-dark" type="button" @click="addCouponCode"
+                :class="{ 'disabled': !cartLength }">
                   套用優惠碼
                 </button>
               </div>
@@ -118,7 +129,8 @@
               class="btn btn-outline-secondary btn-block mr-2">
                 繼續購物
               </router-link>
-              <router-link to="/user/order" class="btn btn-success btn-block mt-0">
+              <router-link to="/user/order" class="btn btn-success btn-block mt-0"
+              :class="{ 'disabled': !cartLength }">
                 前往結帳
               </router-link>
             </div>
@@ -130,6 +142,7 @@
 </template>
 
 <script>
+import emitter from '@/methods/emitter';
 import UserProgress from '@/components/UserProgress.vue';
 
 export default {
@@ -229,10 +242,10 @@ export default {
       this.status.loadingItem = id;
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
       this.isLoading = true;
-      this.$http.delete(url).then((response) => {
-        this.$httpMessageState(response, '移除購物車品項');
+      this.$http.delete(url).then(() => {
         this.status.loadingItem = '';
         this.getCart();
+        emitter.emit('getCartLength');
         this.isLoading = false;
       }).catch(() => {
         this.$swal.fire({
@@ -252,7 +265,6 @@ export default {
       this.$http.post(url, { data: coupon }).then((res) => {
         this.isLoading = false;
         if (res.data.success) {
-          this.$httpMessageState(res, '加入優惠券');
           this.getCart();
         } else {
           this.$swal.fire({
@@ -271,6 +283,9 @@ export default {
           timer: 1500,
         });
       });
+    },
+    goProducts() {
+      this.$router.push('/products');
     },
   },
   created() {

@@ -8,15 +8,15 @@
           </router-link>
         </li>
         <li class="breadcrumb-item text-brown fw-bold" aria-current="page">
-          後台登入
+          後台系統
         </li>
       </ol>
     </nav>
     <form class="row justify-content-center my-5" @submit.prevent="signIn">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <h1 class="h3 mb-3 font-weight-normal">請先登入</h1>
         <div class="mb-2">
-          <label for="inputEmail" class="sr-only">Email address
+          <label for="inputEmail" class="w-100">Email address
           <input
             type="email"
             id="inputEmail"
@@ -24,12 +24,11 @@
             placeholder="Email address"
             required
             v-model="user.username"
-            style="width:300px;"
           />
           </label>
         </div>
         <div class="mb-2">
-          <label for="inputPassword" class="sr-only">Password
+          <label for="inputPassword" class="w-100">Password
           <input
             type="password"
             id="inputPassword"
@@ -37,11 +36,10 @@
             placeholder="Password"
             required
             v-model="user.password"
-            style="width:300px;"
           />
           </label>
         </div>
-        <div class="text-start mt-5 ms-5">
+        <div class="mt-5 d-flex justify-content-center">
           <button class="btn btn-lg btn-brown btn-block w-50" type="submit">登入</button>
         </div>
       </div>

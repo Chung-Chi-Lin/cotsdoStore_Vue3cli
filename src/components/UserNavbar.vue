@@ -5,7 +5,7 @@
       <div class="navbar-img d-none d-lg-block text-center">
         <h1 class="f-kalam h4 fw-bold">Costdo 寵物生活館</h1>
       </div>
-      <div class="d-lg-none text-center shadow-sm rounded-pill">
+      <div class="d-md-none text-center shadow-sm rounded-pill">
         <h1 class="f-kalam h3 mt-3 px-2 fw-bold">Costdo 寵物生活館</h1>
       </div>
       <button class="navbar-toggler border-0" type="button"
@@ -15,32 +15,35 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
-          <li class="nav-item pe-5">
-            <router-link class="fs-5 nav-link" aria-current="page" to="/">首頁</router-link>
+        <ul class="navbar-nav ms-auto d-flex align-items-md-center text-nowrap">
+          <li class="nav-item pe-3">
+            <router-link class="fs-5 nav-link" aria-current="page" to="/">
+              首頁</router-link>
           </li>
-          <li class="nav-item pe-5">
-            <router-link class="fs-5 nav-link" aria-current="page" to="/products">商品介紹</router-link>
+          <li class="nav-item pe-3">
+            <router-link class="fs-5 nav-link" aria-current="page" to="/products">
+              商品介紹</router-link>
           </li>
-          <li class="nav-item pe-5">
+          <li class="nav-item pe-3">
             <router-link class="fs-5 nav-link" aria-current="page" to="/location">門市資訊</router-link>
           </li>
-          <li class="nav-item pe-5">
+          <li class="nav-item pe-4">
             <router-link class="fs-5 nav-link" aria-current="page" to="/adopt">
               領養專區
             </router-link>
           </li>
-          <li class="nav-item pe-2 btn-h">
+          <li class="nav-item btn-h">
             <button type="button" class="btn border-0 p-0 pe-2"
             @click="$refs.searchModal.showModal()">
             <span class="fs-3 me-2 d-md-none">搜尋商品</span><i class="bi bi-search fs-3"></i>
             </button>
           </li>
-          <li class="nav-item pe-2 btn-h">
+          <li class="nav-item btn-h">
             <button type="button" class="btn btn-sm position-relative" @click="goCart">
+              <span class="fs-3 d-md-none">購物車</span>
               <i class="bi bi-cart-plus-fill fs-3"></i>
-              <span class="position-absolute top-0 end-0
-              badge rounded-pill bg-danger">{{cartLength}}</span>
+              <p class="position-absolute top-0 end-0
+              badge rounded-pill bg-danger">{{cartLength}}</p>
             </button>
           </li>
         </ul>
@@ -52,6 +55,7 @@
 </template>
 
 <script>
+import emitter from '@/methods/emitter';
 import UserSearchModal from './UserSearchModal.vue';
 
 export default {
@@ -61,7 +65,7 @@ export default {
   data() {
     return {
       modal: null,
-      cartLength: '0',
+      cartLength: 0,
     };
   },
   methods: {
@@ -72,7 +76,6 @@ export default {
     },
     getCart() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.isLoading = true;
       this.$http.get(url).then((response) => {
         this.cartLength = response.data.data.carts.length;
       }).catch(() => {
@@ -87,6 +90,11 @@ export default {
     goCart() {
       this.$router.push('/user/cart');
     },
+  },
+  mounted() {
+    emitter.on('getCartLength', () => {
+      this.getCart();
+    });
   },
   created() {
     this.getCart();

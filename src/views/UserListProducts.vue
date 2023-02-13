@@ -1,32 +1,30 @@
 <template>
-  <LoadingPage :active="isLoading"></LoadingPage>
-  <div class="border-bottom">
+  <VueLoading :active="isLoading" />
+  <div class="border-bottom mt-5">
     <div class="container">
-      <div class="d-none d-md-block" style="position:relative;">
-        <img class="w-100 my-3 rounded-4 object-cover-center" style="height:550px" src="https://images.unsplash.com/photo-1555341029-f730b0ce4522?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="女生與兩隻貓">
-        <div class="rounded-1"
-        style="position:absolute;background-color: #00000090;z-index:2; left:200px; top:280px;">
-        <h2 class="text-white p-4 font-monospace">
-          周年慶輸入優惠碼
-          <span class="text-decoration-underline">costdo85</span>
-          ，即享全館85折優惠
-        </h2>
+      <div class="d-none d-md-block position-relative">
+        <img class="w-100 rounded-3 carousel-h object-cover-center" src="https://images.unsplash.com/photo-1555341029-f730b0ce4522?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="女生與兩隻貓">
+        <div class="rounded-1 position-absolute lp-text">
+          <h2 class="text-white p-4 font-monospace">
+            周年慶輸入優惠碼
+            <span class="text-decoration-underline">costdo85</span>
+            ，即享全館85折優惠
+          </h2>
         </div>
       </div>
 
-      <div class="d-md-none" style="position:relative;">
-        <img class="w-100 my-3 rounded-4" style="height:250px" src="https://images.unsplash.com/photo-1555341029-f730b0ce4522?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="女生與兩隻貓">
-        <div class="rounded-1"
-        style="position:absolute;background-color: #00000090;z-index:2; left:50px; top:80px;">
-        <h2 class="text-white p-4 font-monospace h3">
-          輸入優惠碼
-          <span class="text-decoration-underline">costdo85</span><br>
-          即可享全館 85 折優惠
-        </h2>
+      <div class="d-md-none position-relative">
+        <img class="w-100 my-3 rounded-4 lp-h-sm" src="https://images.unsplash.com/photo-1555341029-f730b0ce4522?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="女生與兩隻貓">
+        <div class="rounded-1 position-absolute lp-text-sm">
+          <h2 class="text-white p-4 font-monospace h3">
+            輸入優惠碼
+            <span class="text-decoration-underline">costdo85</span><br>
+            即可享全館 85 折優惠
+          </h2>
         </div>
       </div>
 
-      <nav aria-label="breadcrumb">
+      <nav aria-label="breadcrumb" class="mt-5">
         <ol class="breadcrumb py-0 fs-3 position-relative">
           <li class="breadcrumb-item ">
             <router-link to="/">
@@ -36,22 +34,22 @@
           <li class="breadcrumb-item text-brown fw-bold" aria-current="page">
             {{ filteredType }}
           </li>
-          <ToastMessages></ToastMessages>
+          <ToastMessages />
         </ol>
       </nav>
       <div class="row mt-4">
-      <nav class="col-md-3 d-md-block d-none">
-        <h3 class="list-group-item h4 mb-0 fw-bold text-white bg-brown py-3 px-3">商品目錄</h3>
-        <section class="list-group list-group-flush"
-        v-for="(item, key) in category" :key="'category' + key">
-          <button type="button"
-          class="list-group-item list-group-item-action router-link-active py-3 fw-bold
-          border-bottom"
-          :class="{ 'active': filteredType === item }"
-          aria-current="page" @click="handleChangeCategory(item)">
-          <i class="bi bi-caret-right-fill"
-          :class="{ 'text-warning': filteredType === item }"></i> {{ item }} </button>
-        </section>
+        <nav class="col-md-3 d-md-block d-none">
+          <h3 class="list-group-item h4 mb-0 fw-bold text-white bg-brown py-3 px-3">商品目錄</h3>
+          <section class="list-group list-group-flush"
+            v-for="(item, key) in category" :key="'category' + key">
+            <button type="button" class="list-group-item list-group-item-action router-link-active
+              py-3 fw-bold border-bottom" :class="{ 'active': filteredType === item }"
+              aria-current="page" @click="handleChangeCategory(item)">
+              <i class="bi bi-caret-right-fill" :class="{ 'text-warning': filteredType === item }">
+              </i>
+              {{ item }}
+            </button>
+          </section>
         </nav>
         <div class="col-md-8">
           <div class="row row-cols-md-3 g-2">
@@ -62,8 +60,8 @@
                 :origin_price="item.origin_price"
                 :title="item.title"
                 @addToCart="addToCart(item.id)"
-                @getProduct="getProduct(item.id)"
-                ></ProductCard>
+                @getProduct="getProduct(item.id)">
+              </ProductCard>
             </div>
           </div>
         </div>
@@ -77,8 +75,8 @@
 <script>
 import emitter from '@/methods/emitter';
 import ToastMessages from '@/components/ToastMessages.vue';
-import ProductCard from '../components/ProductCard.vue';
-import Pagination from '../components/PaginationComponent.vue';
+import ProductCard from '@/components/ProductCard.vue';
+import Pagination from '@/components/PaginationComponent.vue';
 
 export default {
   components: {
@@ -131,6 +129,7 @@ export default {
       this.isLoading = true;
       this.$http.post(url, { data: cart }).then((response) => {
         this.isLoading = false;
+        emitter.emit('getCartLength');
         this.$httpMessageState(response, '加入購物車');
       }).catch((err) => {
         this.$httpMessageState(err, '加入失敗');

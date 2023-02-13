@@ -1,32 +1,32 @@
 <template>
-    <div class="position-relative m-5">
-      <div class="progress" style="height: 3px;">
-        <div class="progress-bar bg-warning" role="progressbar" :style="styleObject"
+  <div class="position-relative m-5">
+    <div class="progress" style="height: 3px;">
+      <div class="progress-bar bg-warning" role="progressbar" :style="styleObject"
         aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-        </div>
       </div>
-      <button type="button" ref="cart" :class="successClass"
-      class="position-absolute top-0 start-0 pe-none
-      translate-middle btn btn-sm text-white rounded-pill"
-      style="width: 2rem; height:2rem;">1
-      <span class="text-dark fw-bold position-absolute top-100 start-50
-      translate-middle-x text-nowrap text-brown">購物車</span>
-      </button>
-      <button type="button" ref="order" :class="errorClass"
-      class="position-absolute top-0 start-50 pe-none
-      translate-middle btn btn-sm rounded-pill text-white"
-      style="width: 2rem; height:2rem;">2
-      <span class="text-dark fw-bold position-absolute top-100 start-50
-      translate-middle-x text-nowrap text-brown">填寫資料</span>
-      </button>
-      <button type="button" ref="check" :class="errorClass"
-      class="position-absolute top-0 start-100 pe-none
-      translate-middle btn btn-sm text-white btn-secondary rounded-pill"
-      style="width: 2rem; height:2rem;">3
-      <span class="text-dark fw-bold position-absolute top-100 start-50
-      translate-middle-x text-nowrap text-brown">訂單確認</span>
-      </button>
     </div>
+    <button type="button" ref="cart" :class="successClass"
+      class="position-absolute top-0 start-0 pe-none
+      translate-middle btn btn-sm text-white rounded-pill progress-w">1
+      <span class="text-dark fw-bold position-absolute top-100 start-50
+        translate-middle-x text-nowrap text-brown">購物車
+      </span>
+    </button>
+    <button type="button" ref="order" :class="errorClass"
+      class="position-absolute top-0 start-50 pe-none
+      translate-middle btn btn-sm rounded-pill text-white progress-w">2
+      <span class="text-dark fw-bold position-absolute top-100 start-50
+        translate-middle-x text-nowrap text-brown">填寫資料
+      </span>
+    </button>
+    <button type="button" ref="check" :class="errorClass"
+      class="position-absolute top-0 start-100 pe-none
+      translate-middle btn btn-sm text-white btn-secondary rounded-pill progress-w">3
+      <span class="text-dark fw-bold position-absolute top-100 start-50
+        translate-middle-x text-nowrap text-brown">訂單確認
+      </span>
+    </button>
+  </div>
 </template>
 
 <script>
