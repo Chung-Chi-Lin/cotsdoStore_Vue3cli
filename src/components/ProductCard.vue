@@ -4,9 +4,9 @@
       <div class="mask">
         <div class="caption">查看更多</div>
       </div>
-      <div class="overflowHidden" style="height: 50%">
-        <img class="rounded-0 item-img img-fluid" :src="imageUrl"
-        :alt="title" >
+      <div class="overflowHidden" style="height: 300px;">
+        <img class="rounded-0 item-img" :src="imageUrl"
+        :alt="title" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
     </a>
     <div class="card-body card-bg">
